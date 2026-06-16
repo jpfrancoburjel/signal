@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signal — Family Investments Dashboard</title>
+  <link rel="stylesheet" href="styles.css?v=4" />
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <div>
+        <div class="eyebrow">Signal / Dashboard v0</div>
+        <h1 id="householdName">Family Investments</h1>
+      </div>
+      <div class="tooltip-container risk-control header-risk">
+        <span class="badge">Risk <span id="riskSignal">—</span></span>
+        <span class="tooltip-trigger">ⓘ</span>
+        <span class="tooltip-text">Summarizes exposure to volatile or growth-oriented assets by combining non-cash and cash allocations with fixed weights (non-cash × 0.72, cash × 0.18), summing the results, then scaling to a 1–10 value by dividing by 10 and rounding.</span>
+      </div>
+    </header>
+
+    <section class="grid cards">
+      <div class="card">
+        <div class="metric-label tooltip-container">
+          Total portfolio value
+          <span class="tooltip-trigger">ⓘ</span>
+          <span class="tooltip-text">Total current value across all included accounts and holdings.</span>
+        </div>
+        <div class="metric-value" id="totalValue">—</div>
+        <div class="metric-footnote subtle" id="yearlyChange">—</div>
+      </div>
+      <div class="card">
+        <div class="metric-label tooltip-container">
+          Net unrealized gain
+          <span class="tooltip-trigger">ⓘ</span>
+          <span class="tooltip-text">Represents the aggregate "paper profit/loss" of the current portfolio holdings. It
+            sums up all gains and losses across all accounts and individual assets relative to their original cost
+            basis.</span>
+        </div>
+        <div class="metric-value pos" id="totalGain">—</div>
+        <div class="metric-footnote subtle" id="gainPct">—</div>
+      </div>
+      <div class="card">
+        <div class="metric-label tooltip-container">
+          Forward cash flow
+          <span class="tooltip-trigger">ⓘ</span>
+          <span class="tooltip-text">Represents the expected passive cash distributions (dividends, interest, staking
+            rewards, REIT/PE distributions) the portfolio is expected to generate over the next 12 months.</span>
+        </div>
+        <div class="metric-value" id="cashFlow">—</div>
+        <div class="metric-footnote subtle">annual distributions / yield signal</div>
+      </div>
+    </section>
+
+    <section class="panel trajectory-panel" style="margin-bottom: 18px;">
+      <div class="panel-head trajectory-head animate-fade-in">
+        <div class="trajectory-title">
+          <h2>Portfolio trajectory</h2>
+        </div>
+        <div class="trajectory-actions">
+          <div class="chart-controls">
+            <button class="chart-btn active" data-period="months">Months</button>
+            <button class="chart-btn" data-period="quarters">Quarters</button>
+            <button class="chart-btn" data-period="years">Years</button>
+          </div>
+        </div>
+      </div>
+      <div class="chart-box" id="timelineChart"></div>
+    </section>
+
+    <section class="panel" style="margin-bottom: 18px;">
+      <div class="panel-head">
+        <div>
+          <h2>Holdings</h2>
+        </div>
+      </div>
+      <div class="table">
+        <div class="table-head">
+          <div>Holding</div>
+          <div>Type</div>
+          <div>Owner</div>
+          <div class="hide-mobile">Account</div>
+          <div>Value</div>
+          <div>Change / stance</div>
+        </div>
+        <div id="holdingsTable"></div>
+      </div>
+      <div class="footer-note">Next move: wire this to a single canonical investments dataset so we stop pretending
+        spreadsheets are a system.</div>
+    </section>
+
+    <section class="grid section-grid">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Allocation by asset class</h2>
+            <div class="subtle">What the family is actually exposed to</div>
+          </div>
+        </div>
+        <div class="alloc-list" id="allocationList"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Ownership split</h2>
+            <div class="subtle">Who owns what across the household</div>
+          </div>
+        </div>
+        <div class="owner-list" id="ownerList"></div>
+      </div>
+    </section>
+  </div>
+
+  <script src="data.js?v=2"></script>
+  <script src="app.js?v=3"></script>
+</body>
+
+</html>

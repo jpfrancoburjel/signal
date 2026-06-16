@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signal — Family Money Dashboard v1.1</title>
+  <link rel="stylesheet" href="styles.css?v=1" />
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <div>
+        <div class="eyebrow">Signal / Dashboard v1.1</div>
+        <h1 id="householdName">—</h1>
+        <div class="subtle" id="headerMeta">—</div>
+      </div>
+      <div class="header-side">
+        <span class="badge" id="baseCurrencyBadge">—</span>
+        <span class="badge" id="fxNoteBadge">—</span>
+      </div>
+    </header>
+
+    <section class="grid cards">
+      <div class="card metric-card">
+        <div class="metric-label">Total tracked wealth</div>
+        <div class="metric-value" id="totalTracked">—</div>
+        <div class="metric-footnote subtle" id="trackedFootnote">—</div>
+      </div>
+      <div class="card metric-card">
+        <div class="metric-label">Liquid cash</div>
+        <div class="metric-value" id="liquidCash">—</div>
+        <div class="metric-footnote subtle" id="cashFootnote">—</div>
+      </div>
+      <div class="card metric-card">
+        <div class="metric-label">Invested assets</div>
+        <div class="metric-value" id="investedAssets">—</div>
+        <div class="metric-footnote subtle" id="investedFootnote">—</div>
+      </div>
+      <div class="card metric-card">
+        <div class="metric-label">Largest institution exposure</div>
+        <div class="metric-value metric-small" id="largestInstitution">—</div>
+        <div class="metric-footnote subtle" id="largestInstitutionFootnote">—</div>
+      </div>
+    </section>
+
+    <section class="grid section-grid two-up">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>FX exposure</h2>
+            <div class="subtle">Native currency totals plus EUR-equivalent view</div>
+          </div>
+        </div>
+        <div class="alloc-list" id="currencyList"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Ownership split</h2>
+            <div class="subtle">Cash + investments rolled up by person</div>
+          </div>
+        </div>
+        <div class="owner-list" id="ownerList"></div>
+      </div>
+    </section>
+
+    <section class="grid section-grid two-up">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Institution exposure</h2>
+            <div class="subtle">Where the money is sitting</div>
+          </div>
+        </div>
+        <div class="alloc-list" id="institutionList"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Concentration & liquidity</h2>
+            <div class="subtle">The stuff you want to notice fast</div>
+          </div>
+        </div>
+        <div class="signal-grid" id="signalGrid"></div>
+      </div>
+    </section>
+
+    <section class="panel" style="margin-bottom: 18px;">
+      <div class="panel-head">
+        <div>
+          <h2>Location of money</h2>
+          <div class="subtle">Owner → institution → account</div>
+        </div>
+      </div>
+      <div class="tree-list" id="moneyTree"></div>
+    </section>
+
+    <section class="panel" style="margin-bottom: 18px;">
+      <div class="panel-head">
+        <div>
+          <h2>Cash accounts</h2>
+          <div class="subtle">Native balances with EUR-equivalent conversion</div>
+        </div>
+      </div>
+      <div class="table">
+        <div class="table-head cash-table-head">
+          <div>Account</div>
+          <div>Owner</div>
+          <div>Institution</div>
+          <div>Currency</div>
+          <div>Native balance</div>
+          <div>EUR value</div>
+          <div class="hide-mobile">Type</div>
+        </div>
+        <div id="cashAccountsTable"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>Investments</h2>
+          <div class="subtle">Only cost/value sheet for now — plusvalías live elsewhere</div>
+        </div>
+      </div>
+      <div class="table">
+        <div class="table-head investment-table-head">
+          <div>Vehicle</div>
+          <div>Owner</div>
+          <div>Institution</div>
+          <div>Type</div>
+          <div>Currency</div>
+          <div>Value</div>
+          <div class="hide-mobile">Liquidity</div>
+        </div>
+        <div id="investmentsTable"></div>
+      </div>
+      <div class="footer-note" id="footerNote"></div>
+    </section>
+  </div>
+
+  <script src="data.js?v=1"></script>
+  <script src="app.js?v=1"></script>
+</body>
+
+</html>
