@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signal v1.2 — Dashboard comparison</title>
+  <link rel="stylesheet" href="styles.css?v=1" />
+</head>
+<body>
+  <div class="shell">
+    <header class="header">
+      <div>
+        <div class="eyebrow">Signal / Dashboard comparison shell</div>
+        <h1>Signal v1.2</h1>
+        <p class="subtle">Both dashboard approaches, same project, separate tabs.</p>
+      </div>
+      <div class="legend">
+        <span class="badge">v1.0 = classic portfolio view</span>
+        <span class="badge">v1.1 = cash / location / FX view</span>
+      </div>
+    </header>
+
+    <div class="tabs" role="tablist" aria-label="Signal dashboard versions">
+      <button class="tab active" role="tab" aria-selected="true" aria-controls="panel-v10" id="tab-v10" data-target="panel-v10">Dashboard v1.0</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="panel-v11" id="tab-v11" data-target="panel-v11">Dashboard v1.1</button>
+    </div>
+
+    <section class="panel active" id="panel-v10" role="tabpanel" aria-labelledby="tab-v10">
+      <div class="panel-head">
+        <div>
+          <h2>v1.0</h2>
+          <div class="subtle">Original prototype: performance, allocation, holdings.</div>
+        </div>
+        <a href="../../signal%20v.1.0/dashboard/index.html" target="_blank" rel="noreferrer">Open standalone ↗</a>
+      </div>
+      <iframe title="Signal dashboard v1.0" src="../../signal%20v.1.0/dashboard/index.html"></iframe>
+    </section>
+
+    <section class="panel" id="panel-v11" role="tabpanel" aria-labelledby="tab-v11" hidden>
+      <div class="panel-head">
+        <div>
+          <h2>v1.1</h2>
+          <div class="subtle">New approach: where the money is, currency exposure, and liquidity.</div>
+        </div>
+        <a href="../../signal%20v.1.1/dashboard/index.html" target="_blank" rel="noreferrer">Open standalone ↗</a>
+      </div>
+      <iframe title="Signal dashboard v1.1" src="../../signal%20v.1.1/dashboard/index.html"></iframe>
+    </section>
+  </div>
+
+  <script src="app.js?v=1"></script>
+</body>
+</html>
